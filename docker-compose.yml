@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  gitliveserver:
+    image: ${DOCKER_REGISTRY-}gitliveserver
+    build:
+      context: .
+      dockerfile: Dockerfile
