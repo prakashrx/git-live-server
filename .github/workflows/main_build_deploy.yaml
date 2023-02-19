@@ -40,12 +40,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{IMAGE_NAME}}:${{steps.version.outputs.SemVer}} .
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{steps.version.outputs.SemVer}} .
 
       - name: Publish Docker image to Docker Hub
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ${{ IMAGE_NAME }}:${{steps.version.outputs.SemVer}},${{ IMAGE_NAME }}:latest
+          tags: ${{ env.IMAGE_NAME }}:${{steps.version.outputs.SemVer}},${{ env.IMAGE_NAME }}:latest
             
