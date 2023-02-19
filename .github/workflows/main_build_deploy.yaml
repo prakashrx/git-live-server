@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+        with:
+          fetch-depth: 0 # fetch the whole repo history
+          
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
