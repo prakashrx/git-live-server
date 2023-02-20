@@ -29,7 +29,7 @@ A sample  config would look like this where **Repositories** is an array of git 
       "Name": "git-live-server-pages",
       "RepoUrl": "https://github.com/prakashrx/git-live-server.git",
       "BranchName": "pages",
-      "WWWRoot":  "dist"
+      "RootDirectory":  "dist"
     }
   ],
   "Logging": {
@@ -49,7 +49,7 @@ Field | Required | Default | Desciption
 Name | `yes` | | The name of the Repo. This must be a unique value|
 RepoUrl | `yes` | | The Git Repo url|
 BranchName | `no` | `master`| The branch name (if different from *master*)|
-WWWRoot | `no` | root directory | The relative path within the repo that needs to be served|
+RootDirectory | `no` | root directory | The relative path within the repo that needs to be served|
 RequestPath| `no` | \ | The Url Path to serve the files. If there is already a repo served at root, this would default to `\{Name}`|
 Username | `no` | | The username required to Authenticate (if required)|
 Password | `no` | | The password required to Authenticate (if required)|
