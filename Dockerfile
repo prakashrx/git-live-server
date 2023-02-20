@@ -17,6 +17,7 @@ FROM build AS publish
 RUN dotnet publish "GitLiveServer.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
+ENV LD_LIBRARY_PATH=/app/runtimes/debian.9-x64/native/
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "GitLiveServer.dll"]

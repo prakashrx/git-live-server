@@ -3,7 +3,7 @@
     "GitLiveServer": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -21,9 +21,12 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/",
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": true,
+      "environmentVariables": {
+        "LD_LIBRARY_PATH": "/app/bin/Debug/net6.0/runtimes/debian.9-x64/native"
+      }
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",

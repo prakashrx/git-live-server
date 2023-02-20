@@ -19,9 +19,13 @@
     <None Remove="..\.dockerignore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 	<PropertyGroup>
 		<DockerfileFile>..\..\Dockerfile</DockerfileFile>
 		<DockerfileContext>.</DockerfileContext>
-		<DockerfileRunArguments>-p 8080:80</DockerfileRunArguments>
+		<DockerfileRunArguments>-p 8080:80 -v Repositories:/app/Repositories</DockerfileRunArguments>
 	</PropertyGroup>
 </Project>
