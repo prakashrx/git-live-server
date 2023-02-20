@@ -25,14 +25,30 @@ repositoryManager.Initialize();
 //app.UseSwagger();
 //app.UseSwaggerUI();
 
+bool isRootPathTaken = false;
 foreach (var repo in repositoryManager.GetRepositories())
 {
+    var requestPath = repo.Config.RequestPath;
+    if (string.IsNullOrEmpty(requestPath) || requestPath == "/" || requestPath == "\\")
+    {
+        requestPath = null;
+        if (isRootPathTaken)
+            requestPath = $"/{repo.Config.Name}";
+    }
+    else if (!requestPath.StartsWith("/"))
+    {
+        requestPath = "/" + requestPath;
+    }
+
     app.UseFileServer(new FileServerOptions
     {
         FileProvider = new PhysicalFileProvider(Path.Combine(repo.LocalPath, repo.Config.WWWRoot ??  "" )),
-        RequestPath= repo.Config.RequestPath,
+        RequestPath= requestPath,
         EnableDefaultFiles = true
     });
+
+    if (string.IsNullOrEmpty(requestPath))
+        isRootPathTaken = true;
 }
 
 app.UseHttpsRedirection();

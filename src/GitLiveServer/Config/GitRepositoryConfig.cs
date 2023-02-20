@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
         public string RequestPath { get; set; }
-        public string WWWRoot { get; set; }
+        public string wwwRoot { get; set; }
         public string RepoUrl { get; set; }
         public string BranchName { get; set; }
         public string Username { get; set; }
