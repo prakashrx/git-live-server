@@ -1,6 +1,7 @@
 name: Build, Publish, and Deploy Docker Image to Azure
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
