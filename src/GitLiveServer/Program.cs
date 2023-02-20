@@ -42,7 +42,7 @@ foreach (var repo in repositoryManager.GetRepositories())
 
     app.UseFileServer(new FileServerOptions
     {
-        FileProvider = new PhysicalFileProvider(Path.Combine(repo.LocalPath, repo.Config.WWWRoot ??  "" )),
+        FileProvider = new PhysicalFileProvider(Path.Combine(repo.LocalPath, repo.Config.wwwRoot ??  "" )),
         RequestPath= requestPath,
         EnableDefaultFiles = true
     });
