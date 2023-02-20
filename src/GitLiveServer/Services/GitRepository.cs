@@ -42,7 +42,7 @@ namespace GitLiveServer.Services
         {
             var cloneOptions = new CloneOptions
             {
-                BranchName = config.BranchName,
+                BranchName = config.BranchName ?? "master",
                 CredentialsProvider = (_url, _usernameFromUrl, _types) => credentials
             };
 
